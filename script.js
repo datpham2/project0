@@ -21,7 +21,7 @@ function newTodo() {
   form.className = 'task_editor center';
 
   // Create an input fill inside of form using innerHTML property
-  form.innerHTML = '<textarea id="task" cols="50" name="task" placeholder="New Task" rows="4"></textarea><br><input disabled type="submit" value="Add task">';
+  form.innerHTML = '<textarea id="task" cols="50" name="task" placeholder="New Task" rows="4"></textarea><br><input disabled id="submit" type="submit" value="Add task">';
 
   // Find me the parent of an existing child
   const container = document.querySelector('.container');
@@ -34,8 +34,18 @@ function newTodo() {
 
   // Add event listener to task input field
   const taskInput = document.querySelector('#task');
-  const addTaskButton = document.querySelector('')
+  const addTaskButton = document.querySelector('#submit')
   taskInput.onkeyup = () => {
+    addTaskButton.disabled = false;
+  }
+
+  // Listen to the form to be submitted
+  const taskEditor = document.querySelector('.task_editor');
+  taskEditor.onsubmit = () => {
     
+    // Create an li element
+    const li = document.createElement('li');
+    // Prevent the form from being submitted
+    return false;
   }
 }
