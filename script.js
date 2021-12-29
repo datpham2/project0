@@ -45,6 +45,17 @@ function newTodo() {
     
     // Create an li element
     const li = document.createElement('li');
+    
+    // Take whatever the user typed in and set it to inner HTML property of li
+    li.innerHTML = taskInput.value;
+
+    // Append the li element to the end of todo list
+    const todoList = document.querySelector('#todo-list');
+    todoList.append(li);
+
+    // Hide the form
+    form.remove();
+
     // Prevent the form from being submitted
     return false;
   }
