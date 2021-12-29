@@ -56,6 +56,9 @@ function newTodo() {
     // Hide the form
     form.remove();
 
+    // Show the New TODO button
+    button.style.display = 'block';
+
     // Prevent the form from being submitted
     return false;
   }
