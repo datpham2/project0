@@ -52,12 +52,18 @@ function newTodo() {
     // Create an li element
     const li = document.createElement('li');
     
-    // Take whatever the user typed in and set it to inner HTML property of li
+    // Take whatever the user typed in and set it to inner HTML property of li and add a checkbox before it
     li.innerHTML = `<input name="checkboxes" type="checkbox" value="${taskInput.value}">${taskInput.value}`;
 
     // Append the li element to the end of todo list
     const todoList = document.querySelector('#todo-list');
     todoList.append(li);
+
+    // Update the Item count by 1
+    const itemCount = document.querySelector('#item-count')
+    let itemCounter = parseInt(itemCount.innerHTML);
+    itemCounter++;
+    itemCount.innerHTML = itemCounter;
 
     // Hide the form
     form.remove();
