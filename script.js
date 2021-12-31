@@ -53,7 +53,7 @@ function newTodo() {
     const li = document.createElement('li');
     
     // Take whatever the user typed in and set it to inner HTML property of li
-    li.innerHTML = taskInput.value;
+    li.innerHTML = `<input name="checkboxes" type="checkbox" value="${taskInput.value}">${taskInput.value}`;
 
     // Append the li element to the end of todo list
     const todoList = document.querySelector('#todo-list');
