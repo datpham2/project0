@@ -32,11 +32,17 @@ function newTodo() {
   // Hide the New TODO button
   button.style.display = 'none';
 
-  // Add event listener to task input field
+  // Add event listener if the user left the finger up from the key
   const taskInput = document.querySelector('#task');
   const addTaskButton = document.querySelector('#submit')
   taskInput.onkeyup = () => {
-    addTaskButton.disabled = false;
+
+    // Enatble the Add Task button when the user really typed in
+    if (taskInput.value.length > 0) {
+      addTaskButton.disabled = false;
+    } else {
+      addTaskButton.disabled = true;
+    }
   }
 
   // Listen to the form to be submitted
