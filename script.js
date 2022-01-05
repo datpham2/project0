@@ -65,6 +65,12 @@ function newTodo() {
     itemCounter++;
     itemCount.innerHTML = itemCounter;
 
+    // Whenver a user add a new TODO, increase uncheck counter by 1
+    const uncheckedCount = document.querySelector('#unchecked-count');
+    let uncheckedCounter = parseInt(uncheckedCount.innerHTML);
+    uncheckedCounter++;
+    uncheckedCount.innerHTML = uncheckedCounter;
+
     // Hide the form
     form.remove();
 
