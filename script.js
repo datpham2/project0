@@ -9,10 +9,23 @@ const list = document.getElementById('todo-list')
 const itemCountSpan = document.getElementById('item-count')
 const uncheckedCountSpan = document.getElementById('unchecked-count')
 
+// Assign check event listener to each checkbox
 function assign() {
-  document.querySelectorAll('li').forEach(li => {
+  document.querySelectorAll('.checkboxes').forEach(li => {
     li.onchange = function() {
-      console.log('changed');
+
+      // Ask question if checkbox is checked or unchecked
+      if (this.checked === true) {
+        const uncheckedCount = document.querySelector('#unchecked-count');
+        let uncheckedCounter = parseInt(uncheckedCount.innerHTML);
+        uncheckedCounter--;
+        uncheckedCount.innerHTML = uncheckedCounter;
+      } else {
+        const uncheckedCount = document.querySelector('#unchecked-count');
+        let uncheckedCounter = parseInt(uncheckedCount.innerHTML);
+        uncheckedCounter++;
+        uncheckedCount.innerHTML = uncheckedCounter;
+      }
     }
   })
 }
@@ -61,7 +74,7 @@ function newTodo() {
     const li = document.createElement('li');
     
     // Take whatever the user typed in and set it to inner HTML property of li and add a checkbox before it
-    li.innerHTML = `<input name="checkboxes" type="checkbox" value="${taskInput.value}">${taskInput.value}`;
+    li.innerHTML = `<input class="checkboxes" name="checkboxes" type="checkbox" value="${taskInput.value}">${taskInput.value}`;
 
     // Append the li element to the end of todo list
     const todoList = document.querySelector('#todo-list');
