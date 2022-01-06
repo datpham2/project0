@@ -9,6 +9,14 @@ const list = document.getElementById('todo-list')
 const itemCountSpan = document.getElementById('item-count')
 const uncheckedCountSpan = document.getElementById('unchecked-count')
 
+function assign() {
+  document.querySelectorAll('li').forEach(li => {
+    li.onchange = function() {
+      console.log('changed');
+    }
+  })
+}
+
 function newTodo() {
 
   // Find me the button with a class of button
@@ -76,6 +84,9 @@ function newTodo() {
 
     // Show the New TODO button
     button.style.display = 'block';
+
+    // Call the assign function
+    assign();
 
     // Prevent the form from being submitted
     return false;
